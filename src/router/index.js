@@ -4,6 +4,7 @@ import Home from '../views/Home.vue'
 import Corona from '../components/Corona.vue'
 import Poorpeeps from '../components/Poorpeeps.vue'
 import Projects from '../views/Projects.vue'
+import PageNotFound from '../views/PageNotFound.vue'
 import NProgress from 'nprogress'
 
 Vue.use(VueRouter)
@@ -40,6 +41,11 @@ const routes = [
     {path: 'covid19donations', component: Corona},
     {path: 'poorpeopledonations', component: Poorpeeps}
     ]
+  },
+  {
+    path: "*",
+    name: 'pnf',
+    component: PageNotFound
   }
 ]
 
