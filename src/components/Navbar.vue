@@ -32,7 +32,7 @@
     </el-row> -->
         <div>
           <b-navbar toggleable="lg" type="dark" variant="logocolor" fixed="top">
-            <b-navbar-brand href="#">
+            <b-navbar-brand href="/">
               <img src="../assets/logoscaled.png" alt="Logo" style="width: 66%" class="d-inline-block align-top">
             </b-navbar-brand>
         
@@ -40,13 +40,11 @@
         
             <b-collapse id="nav-collapse" is-nav>
               <b-navbar-nav>
-                <b-nav-item href="#">Link1</b-nav-item>
-                <b-nav-item href="#">Link2</b-nav-item>
-                <b-nav-item-dropdown text="Lang" right>
-                  <b-dropdown-item href="#">EN</b-dropdown-item>
-                  <b-dropdown-item href="#">ES</b-dropdown-item>
-                  <b-dropdown-item href="#">RU</b-dropdown-item>
-                  <b-dropdown-item href="#">FA</b-dropdown-item>
+                <b-nav-item href="/">Home</b-nav-item>
+                <b-nav-item href="/about">About</b-nav-item>
+                <b-nav-item-dropdown text="Projects" right>
+                  <b-dropdown-item href="/projects/covid19donations">COVID19</b-dropdown-item>
+                  <b-dropdown-item href="/projects/poorpeopledonations">Canned food drive</b-dropdown-item>
                 </b-nav-item-dropdown>
              </b-navbar-nav>
         
@@ -61,85 +59,17 @@
 </template>
 
 <script>
-  import Vue from 'vue'
-  import Buefy from 'buefy'
-  Vue.use(Buefy)
   export default {
     data() {
       return {
-        activeIndex: '1',
-        menuItems: {
-          'Home': '/',
-          'About': '/about'
-        },
-        index: 1,
-        show: 'false',
-        showNavbar: true,
-        lastScrollPosition: 0
       };
     },
     methods: {
-      handleSelect(key, keyPath) {
-        console.log(key, keyPath);
-      },
-      redirect(index) {
-        var link = this.menuItems[index-1]
-        this.router.push(link)
-      },
-      changeShow() {
-        if (this.show == 'true') {
-          this.show = 'false' 
-          console.log(this.show)
-        }
-        else if (this.show == 'false') {
-          this.show = 'true'
-          console.log(this.show)
-        }
-      },
-      onScroll () {
-        const currentScrollPosition = window.pageYOffset || document.documentElement.scrollTop
-          if (currentScrollPosition < 0) {
-            return
-          }  // Stop executing this function if the difference between
-          // current scroll position and last scroll position is less than some offset
-          if (Math.abs(currentScrollPosition - this.lastScrollPosition) < 60) {
-            return
-          }
-          this.showNavbar = currentScrollPosition < this.lastScrollPosition
-          this.lastScrollPosition = currentScrollPosition
-      }
     },
     mounted () {
-      window.addEventListener('scroll', this.onScroll)
-    },
-    beforeDestroy () {
-      window.removeEventListener('scroll', this.onScroll)
     },
   }
 </script>
 
 <style scoped>
-.navbar {
-  height: 60px;
-  width: 100vw;
-  background: hsl(200, 50%, 50%);
-  position: fixed;
-  box-shadow: 0 2px 15px rgba(71, 120, 120, 0.5);
-  transform: translate3d(0, 0, 0);
-  transition: 0.1s all ease-out;
-}
-.navbar.navbar--hidden {
-  box-shadow: none;
-  transform: translate3d(0, -100%, 0);
-}
-li a {
-  text-decoration: none;
-}
-h1 {
-  text-align: center;
-}
-a:hover {color:#303133;}   /* Mouse over link */
-.nbar {
-  background-color: black !important;
-}
 </style>
