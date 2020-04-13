@@ -27,7 +27,7 @@
 
 
 
-    <el-row>
+<!--    <el-row>
         <el-col class="navbar" :class="{ 'navber-hidden': !showNavbar }" :span="24" style="position: fixed" id="nbar">
             <b-navbar style="padding: 1em">
                 <template slot="brand">
@@ -56,7 +56,7 @@
                 </template>
             </b-navbar>
         </el-col>
-    </el-row>
+    </el-row> -->
   </div>
 </template>
 
