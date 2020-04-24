@@ -1,7 +1,11 @@
 // Custom.scss
 // Option A: Include all of Bootstrap
 //@import "./node_modules/bootstrap/scss/_variables.scss"
+
+//Good colour schemes found at: https://convertingcolors.com/
 $theme-colors: (
-  "logocolor": #D42B2B
+  "logocolor": #D42B2B,
+  "scblue": #0084E4,
+  "scturq": #008A76
 );
 @import "../node_modules/bootstrap/scss/bootstrap";
